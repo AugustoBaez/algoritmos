@@ -110,6 +110,41 @@ class SLL {
         console.log("El último valor de la lista es:", lastValue)
         return lastValue
     }
+    removeBack() {
+        if (this.head == null) return null
+
+        if (this.head.next == null) {
+            this.head = null
+            return this
+        }
+
+        let currentNode = this.head
+        let previousNode = null
+
+        while (currentNode.next) {
+            previousNode = currentNode
+            currentNode = currentNode.next
+        }
+        previousNode.next = null
+
+        console.log("el ultimo nodo ha sido eliminado")
+        return this
+    }
+    addBack(value) {
+        if (this.head == null) {
+            this.head == new Node(value)
+        }
+
+        let currentNode = this.head
+
+        while (currentNode.next) {
+            currentNode = currentNode.next
+        }
+
+        currentNode.next = new Node(value)
+        console.log("valor agregado al final de la lista")
+        return this
+    }
     display() {
         let currentNode = this.head
         while (currentNode) {
@@ -122,12 +157,16 @@ const myList = new SLL()
 myList.addFront(5)
 myList.addFront(10)
 myList.addFront(15)
-myList.removeFront()
+/* myList.removeFront() */
 myList.front()
-myList.contains(5)
+/* myList.contains(5) */
 myList.length()
-myList.max()
+/* myList.max()
 myList.min()
-myList.average()
+myList.average() */
 myList.back()
+myList.removeBack()
+myList.display()
+myList.addBack(20)
+myList.length()
 myList.display()
